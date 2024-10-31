@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Interactive Hero Section</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        background-color: #0a0a0a;
+        color: #ffffff;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+          Oxygen, Ubuntu, Cantarell, sans-serif;
+        overflow-x: hidden;
+      }
+
+      .hero {
+        height: 100vh;
+        width: 100vw;
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 2rem;
+      }
+
+      .hero-content {
+        position: relative;
+        z-index: 1;
+        text-align: center;
+        opacity: 0;
+        transform: translateY(20px);
+        animation: fadeIn 1s ease-out forwards;
+      }
+
+      @keyframes fadeIn {
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .hero-title {
+        font-size: clamp(2.5rem, 8vw, 6rem);
+        font-weight: 700;
+        margin-bottom: 1rem;
+        line-height: 1.1;
+      }
+
+      .hero-subtitle {
+        font-size: clamp(1rem, 3vw, 1.5rem);
+        opacity: 0.7;
+        margin-bottom: 2rem;
+        max-width: 600px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .cta-button {
+        display: inline-block;
+        padding: 1rem 2rem;
+        font-size: 1.1rem;
+        background: transparent;
+        color: #fff;
+        border: 2px solid #fff;
+        border-radius: 30px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        text-decoration: none;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .cta-button:hover {
+        background: #fff;
+        color: #0a0a0a;
+      }
+
+      .mouse-follower {
+        position: fixed;
+        width: 400px;
+        height: 400px;
+        background: radial-gradient(
+          circle,
+          rgba(255, 255, 255, 0.1) 0%,
+          rgba(255, 255, 255, 0) 70%
+        );
+        border-radius: 50%;
+        pointer-events: none;
+        transform: translate(-50%, -50%);
+        z-index: 0;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+      }
+
+      .grain {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMDAiIGhlaWdodD0iMzAwIj48ZmlsdGVyIGlkPSJhIj48ZmVUdXJidWxlbmNlIHR5cGU9ImZyYWN0YWxOb2lzZSIgYmFzZUZyZXF1ZW5jeT0iLjc1IiBzdGl0Y2hUaWxlcz0ic3RpdGNoIi8+PC9maWx0ZXI+PHJlY3Qgd2lkdGg9IjMwMCIgaGVpZ2h0PSIzMDAiIGZpbHRlcj0idXJsKCNhKSIgb3BhY2l0eT0iLjA1Ii8+PC9zdmc+");
+        opacity: 0.5;
+        pointer-events: none;
+      }
+
+      @media (max-width: 768px) {
+        .hero-content {
+          padding: 0 1rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="grain"></div>
+    <div class="mouse-follower"></div>
+    <section class="hero">
+      <div class="hero-content">
+        <h1 class="hero-title">Design with Purpose</h1>
+        <p class="hero-subtitle">
+          Creating meaningful digital experiences through innovative design and
+          thoughtful interactions.
+        </p>
+        <a href="#" class="cta-button">Explore Our Work</a>
+      </div>
+    </section>
+  </body>
+  <script src="./script.js"></script>
+</html>
